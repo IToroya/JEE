@@ -7,7 +7,7 @@ public class JeeJDBC {
 
     public static void main(String[] args) {
 
-        JeeJDBC jee = new JeeJDBC();
+
         SqlStatements statement = new SqlStatements();
         int eingabe = 0;
 
@@ -24,7 +24,7 @@ public class JeeJDBC {
         switch(eingabe) {
             case 1: {
                 statement.selectAllEntries();
-                //jee.nochWasTun();
+                statement.nochWasTun();
                 break;
             }
             case 2: {
@@ -35,7 +35,7 @@ public class JeeJDBC {
                     id = sc.nextInt();
                 }
                 statement.selectEntryById(id);
-                //jee.nochWasTun();
+                statement.nochWasTun();
 
                 break;
             }
@@ -50,7 +50,7 @@ public class JeeJDBC {
                 String mood = sc.next();
 
                 statement.addEntry(content, created, mood);
-                //jee.nochWasTun();
+                statement.nochWasTun();
                 break;
             }
             case 4: {
@@ -67,7 +67,7 @@ public class JeeJDBC {
                 String mood = sc.next();
 
                 statement.updateEntry(id, content, created, mood);
-                //jee.nochWasTun();
+                statement.nochWasTun();
                 break;
             }
             case 5: {
@@ -80,27 +80,9 @@ public class JeeJDBC {
                     statement.deleteEntry(id);
                 else
                     System.out.println("Dann eben nicht!\n");
-                //jee.nochWasTun();
+                statement.nochWasTun();
                 break;
             }
         }
-
-
     }
-
-    /**JeeJDBC jee2 = new JeeJDBC();
-    Scanner sc2 = new Scanner(System.in);
-
-    public void nochWasTun(){
-        System.out.println("Willst du noch etwas tun?\nZum bestätigen " + "\"" + "ja" + "\"" + " eingeben!\n");
-        String bestaetigung = sc2.next();
-        if(bestaetigung == "ja")
-            jee2.main(null);
-        else
-            System.out.println("\nBye Bye!");
-    }
-    **/
-
-
-
 }

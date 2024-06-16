@@ -1,6 +1,7 @@
 package ninja.b1t.JEEBackendAPI.JDBC;
 
 import java.sql.*;
+import java.util.Scanner;
 
 
 public class SqlStatements extends JeeJDBC {
@@ -67,7 +68,8 @@ public class SqlStatements extends JeeJDBC {
             );
 
             Statement statement = connection.createStatement();
-            int resultSet = statement.executeUpdate("INSERT INTO journalentry \n" + "(`content`,\n" + "`created`,\n" + "`mood`)\n" + "VALUES\n" + "(\"" + content + "\"," + "\n" + "\"" + created + "\"," + "\n" + "\"" + mood + "\");");
+            int resultSet = statement.executeUpdate("INSERT INTO journalentry \n" + "(`content`,\n" + "`created`,\n" + "`mood`)\n" + "VALUES\n"
+                                                        + "(\"" + content + "\"," + "\n" + "\"" + created + "\"," + "\n" + "\"" + mood + "\");");
 
             System.out.println("\nEntry erfolgreich hinzugefügt!\n");
         }
@@ -86,7 +88,8 @@ public class SqlStatements extends JeeJDBC {
             );
 
             Statement statement = connection.createStatement();
-            int resultSet = statement.executeUpdate("UPDATE journalentry SET\n" + "`content` = " + "\"" + content + "\",\n" + "`created` = " + "\"" + created + "\",\n" + "`mood` = " + "\"" + mood + "\"\n" + "WHERE `id` = " + id + ";");
+            int resultSet = statement.executeUpdate("UPDATE journalentry SET\n" + "`content` = " + "\"" + content + "\",\n" + "`created` = "
+                                                        + "\"" + created + "\",\n" + "`mood` = " + "\"" + mood + "\"\n" + "WHERE `id` = " + id + ";");
 
             System.out.println("\nEntry erfolgreich angepasst!\n");
         }
@@ -114,4 +117,22 @@ public class SqlStatements extends JeeJDBC {
         }
     }
 
+
+
+    public void nochWasTun() {
+        JeeJDBC jee = new JeeJDBC();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Willst du noch etwas tun?\nFalls nicht " + "\"" + "stop" + "\"" + " eingeben!\n");
+        String eingabe = sc.next();
+
+        switch (eingabe) {
+            case "stop": {
+                System.out.println("Bye Bye!\n");
+                break;
+            }
+            default:
+                jee.main(null);
+        }
+    }
 }
