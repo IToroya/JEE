@@ -45,13 +45,16 @@ public class SqlStatements extends JeeJDBC {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM journalentry WHERE id = " + id);
 
-            while(resultSet.next()){
+            if(resultSet.next()){
                 System.out.println("ID: " + resultSet.getInt("id"));
                 System.out.println("content: " + resultSet.getString("content"));
                 System.out.println("created on: " + resultSet.getString("created"));
                 System.out.println("mood: " + resultSet.getString("mood"));
+                System.out.println("\nEntry mit ID " + id + " erfolgreich ausgegeben!\n");
             }
-            System.out.println("\nEntry mit id " + id + "erfolgreich ausgegeben!\n");
+            else
+                System.out.println("\nEntry mit id " + id + " existiert nicht!\n");
+
         }
         catch(SQLException e){
             System.out.println("\nCouldn't load this Entry!\n" + e.getMessage());

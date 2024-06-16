@@ -41,7 +41,7 @@ public class JeeJDBC {
             }
             case 3: {
                 System.out.println("Bitte Content für den Entry eingeben!\n");
-                String content = sc.next();
+                String content = stringContent();
 
                 System.out.println("Bitte Erstelldatum für den Entry eingeben! WICHTIG: Format muss YYYY-MM-DD sein!\n");
                 String created = sc.next();
@@ -58,7 +58,7 @@ public class JeeJDBC {
                 int id = sc.nextInt();
 
                 System.out.println("Bitte geänderten Content für den Entry eingeben!\n");
-                String content = sc.next();
+                String content = stringContent();
 
                 System.out.println("Bitte Editierdatum für den Entry eingeben! WICHTIG: Format muss YYYY-MM-DD sein!\n");
                 String created = sc.next();
@@ -84,5 +84,10 @@ public class JeeJDBC {
                 break;
             }
         }
+    }
+
+    private static String stringContent(){
+        Scanner sc = new Scanner(System.in);
+        return sc.nextLine();
     }
 }
